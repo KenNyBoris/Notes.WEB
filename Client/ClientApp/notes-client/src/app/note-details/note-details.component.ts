@@ -36,7 +36,6 @@ export class NoteDetailsComponent implements OnInit {
 
   edit(): void {
     this.editMode = true;
-    this.noteWasEdited = true;
   }
 
   cancelEdit(): void {
@@ -55,6 +54,7 @@ export class NoteDetailsComponent implements OnInit {
     this.noteService.update(noteModel).subscribe(() => {
       this.notificationService.showSuccess("Note was updated");
       this.editMode = false;
+      this.noteWasEdited = true;
     });
   }
 }
