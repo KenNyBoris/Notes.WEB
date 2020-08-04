@@ -14,7 +14,10 @@ describe('workspace-project App', () => {
       .click()
       .then(s => page.fillFields('test')
           ));
-    page.getCreateNoteBtn().click().then(w => expect(page.getNoteTextDetails().getText()).toEqual('test'));
+    page.getCreateNoteBtn()
+      .click()
+      .then(w => expect(page.getNoteTextDetails()
+        .toEqual('test')));
 
   });
 

@@ -19,7 +19,8 @@ export class AppPage {
     return element(by.id('save-btn'));
   }
 
-  getNoteTextDetails(): ElementFinder {
-      return element(by.id('text-input'));
+  getNoteTextDetails() {
+    var text = element(by.id('text-input'))
+    return expect(text.getAttribute('value'))
   }
 }
