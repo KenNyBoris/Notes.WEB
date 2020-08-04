@@ -8,14 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display error message', () => {
+  it('should display note with inserted test text after creating', () => {
     page.navigateTo();
     expect(page.getOpenCreateModalElement()
       .click()
-      .then(s => page.getOpenModalOkBtn()
-        .click()
-        .then(w => page.getErrorMessageContainer()
-          ))).toEqual('Fill required fields!');
+      .then(s => page.fillFields('test')
+          ));
+    page.getCreateNoteBtn().click().then(w => expect(page.getNoteTextDetails().getText()).toEqual('test'));
+
   });
 
   afterEach(async () => {
@@ -26,3 +26,4 @@ describe('workspace-project App', () => {
     } as logging.Entry));
   });
 });
+

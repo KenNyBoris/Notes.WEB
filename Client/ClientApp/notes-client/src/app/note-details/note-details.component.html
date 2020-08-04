@@ -3,32 +3,34 @@
     <button class="custom-btn" color="primary"
             (click)="save()"
             mat-raised-button
+            i18n
             mat-button>Save
     </button>
   <button class="custom-btn ml-4"
           (click)="cancelEdit()"
           mat-raised-button
+          i18n
           mat-button>Cancel
   </button>
 
   </div>
   <div *ngIf="!editMode">
-    <button class="custom-btn" color="accent" (click)="edit()" mat-raised-button mat-button>Edit</button>
-    <button class="custom-btn ml-4" (click)="close()" mat-raised-button mat-button>Close</button>
+    <button class="custom-btn" color="accent" i18n (click)="edit()" mat-raised-button mat-button>Edit</button>
+    <button class="custom-btn ml-4" i18n (click)="close()" mat-raised-button mat-button>Close</button>
   </div>
 </div>
 
 <div class="note-details">
   <ng-container>
     <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input  matInput [(ngModel)]="noteDetails.title" [disabled]="!editMode">
+      <mat-label i18n>Title</mat-label>
+      <input matInput [(ngModel)]="noteDetails.title" [disabled]="!editMode">
     </mat-form-field>
   </ng-container>
   <ng-container>
     <mat-form-field class="text" appearance="fill">
-      <mat-label>Text</mat-label>
-      <textarea matInput [(ngModel)]="noteDetails.text" [disabled]="!editMode">
+      <mat-label i18n>Text</mat-label>
+      <textarea matInput id="text-input" [(ngModel)]="noteDetails.text" [disabled]="!editMode">
       </textarea>
     </mat-form-field>
   </ng-container>

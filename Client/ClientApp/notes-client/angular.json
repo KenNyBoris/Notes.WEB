@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "notes-client": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": {
+            "translation": "src/locale/messages.ru.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,6 +31,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "localize": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -34,6 +43,9 @@
             "scripts": []
           },
           "configurations": {
+            "ru": {
+              "localize": ["ru"]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -62,6 +74,9 @@
                 }
               ]
             }
+          },
+          "ru": {
+            "localize": true
           }
         },
         "serve": {
@@ -72,6 +87,9 @@
           "configurations": {
             "production": {
               "browserTarget": "notes-client:build:production"
+            },
+            "ru": {
+              "browserTarget": "notes-client:build:ru"
             }
           }
         },

@@ -1,24 +1,24 @@
 
 <form class="text-center" [formGroup]="createNoteForm" (ngSubmit)="createNote()">
-  <h3>Add note</h3>
+  <h3 i18n>Add note</h3>
   <ng-container>
     <mat-form-field>
-      <mat-label>Title</mat-label>
-      <input  matInput required formControlName="title">
+      <mat-label i18n>Title</mat-label>
+      <input id="title-input" matInput required formControlName="title">
     </mat-form-field>
   </ng-container>
   <br>
   <ng-container>
     <mat-form-field class="ml-4">
-      <mat-label>Text</mat-label>
-      <textarea rows="15" matInput required formControlName="text">
+      <mat-label i18n>Text</mat-label>
+      <textarea id="text-input" rows="15" matInput required formControlName="text">
       </textarea>
     </mat-form-field>
   </ng-container>
   <ng-container>
   <div class="d-flex justify-content-around ">
     <button color="primary" id="save-btn" type="submit" mat-button mat-raised-button>Ok</button>
-    <button mat-button color="warn" (click)="cancel()">Cancel</button>
+    <button i18n mat-button color="warn" (click)="cancel()">Cancel</button>
   </div>
   </ng-container>
 </form>

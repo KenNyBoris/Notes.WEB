@@ -1,4 +1,4 @@
-import {browser, by, element, protractor} from 'protractor';
+import {browser, by, element, ElementFinder, protractor} from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -10,13 +10,16 @@ export class AppPage {
     return element(by.id('add-note-btn'));
   }
 
-  getErrorMessageContainer() {
-      let text = element(by.css('.mat-simple-snackbar')).element(element(by.tagName('span'))).getText();
-    debugger;
-      return text;
+  fillFields(testString: string): void {
+      element(by.id('title-input')).sendKeys(testString);
+    element(by.id('text-input')).sendKeys(testString);
   }
 
-  getOpenModalOkBtn() {
+  getCreateNoteBtn() {
     return element(by.id('save-btn'));
+  }
+
+  getNoteTextDetails(): ElementFinder {
+      return element(by.id('text-input'));
   }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { CreateNoteComponent } from './create-note/create-note.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -37,14 +38,15 @@ import { CreateNoteComponent } from './create-note/create-note.component';
     MatDialogModule,
     NgbModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   exports: [
     MatInputModule,
     MatDialogModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
