@@ -28,16 +28,14 @@
                  color="primary">
              Details
           </button>
-          <button
+          <mat-icon
             id="btn-delete-{{notes.indexOf(note)}}"
-            i18n
             class="ml-4"
+            style="cursor:pointer"
             (click)="deleteNote(note)"
-            mat-button
-            mat-raised-button
             color="warn">
-            Delete
-          </button>
+            delete
+          </mat-icon>
         </div>
       </td>
     </ng-container>
