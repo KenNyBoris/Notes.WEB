@@ -11,6 +11,6 @@ namespace Notes.BLL.Interfaces
         GetNoteViewModel GetById(string id);
         string Create(CreateNoteViewModel note);
         void Update(UpdateNoteViewModel note);
-        void Delete(DeleteNoteViewModel note);
+        void Delete(string id);
     }
 }

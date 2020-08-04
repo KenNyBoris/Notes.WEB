@@ -7,7 +7,7 @@
           mat-button>Add note
   </button>
 </div>
-  <table mat-table class="mat-elevation-z8" [dataSource]="notes.notes">
+  <table mat-table class="mat-elevation-z8" [dataSource]="notes">
     <ng-container matColumnDef="title">
       <th mat-header-cell i18n *matHeaderCellDef> Title </th>
       <td mat-cell *matCellDef="let note"> {{note.title}} </td>
@@ -19,9 +19,24 @@
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef> </th>
       <td mat-cell *matCellDef="let note">
-        <div class="d-flex justify-content-around">
-         <button id="{{notes.notes.indexOf(note)}}" i18n (click)="getNoteDetails(note.id)" mat-button mat-raised-button color="primary">
+        <div class="d-flex justify-content-end">
+         <button id="btn-details-{{notes.indexOf(note)}}"
+                 i18n
+                 (click)="getNoteDetails(note.id)"
+                 mat-button
+                 mat-raised-button
+                 color="primary">
              Details
+          </button>
+          <button
+            id="btn-delete-{{notes.indexOf(note)}}"
+            i18n
+            class="ml-4"
+            (click)="deleteNote(note)"
+            mat-button
+            mat-raised-button
+            color="warn">
+            Delete
           </button>
         </div>
       </td>

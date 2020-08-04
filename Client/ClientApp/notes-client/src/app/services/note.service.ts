@@ -22,7 +22,7 @@ export class NoteService {
   }
 
   getById(id: string):Observable<GetNoteViewModel> {
-    return this.http.get<GetNoteViewModel>(this.apiUrl + 'Note/get-by-id',{ params: new HttpParams().set("id", id)});
+    return this.http.get<GetNoteViewModel>(this.apiUrl + 'Note/get-by-id',{ params: new HttpParams().set('id', id)});
   }
 
   create(createNoteModel: CreateNoteModel): Observable<CreateNoteResponseModel> {
@@ -33,4 +33,7 @@ export class NoteService {
     return this.http.put<void>(this.apiUrl + 'Note/update', note);
   }
 
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(this.apiUrl + `Note/delete/${id}`);
+  }
 }

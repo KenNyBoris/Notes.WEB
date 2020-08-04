@@ -20,7 +20,7 @@ namespace Notes.DAL.Repositories
         public void Delete(string id)
         {
             var note = NoteContext.Notes
-                .FirstOrDefault(s => s.Id.Equals(id));
+                .FirstOrDefault(s => s.Id.Equals(Guid.Parse(id)));
              NoteContext.Notes.Remove(note);
         }
 

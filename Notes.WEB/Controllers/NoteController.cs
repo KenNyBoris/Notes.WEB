@@ -53,11 +53,11 @@ namespace Notes.WEB.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ActionName("delete")]
-        public IActionResult Delete(DeleteNoteViewModel note)
+        public IActionResult Delete(string id)
         {
-            _noteService.Delete(note);
+            _noteService.Delete(id);
             return Ok();
         }
     }

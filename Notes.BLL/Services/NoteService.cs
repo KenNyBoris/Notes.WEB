@@ -25,9 +25,9 @@ namespace Notes.BLL.Services
             return _noteRepository.Create(note);
         }
 
-        public void Delete(DeleteNoteViewModel note)
+        public void Delete(string id)
         {
-            _noteRepository.Delete(note.Id);
+            _noteRepository.Delete(id);
         }
 
         public GetAllNotesViewModel GetAll()
