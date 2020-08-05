@@ -21,8 +21,11 @@ namespace Notes.DAL.Repositories
         {
             var note = NoteContext.Notes
                 .FirstOrDefault(s => s.Id.Equals(Guid.Parse(id)));
-            note.IsDeleted = true;
-             Update(note);
+            if (note != null)
+            {
+                note.IsDeleted = true;
+                Update(note);
+            }
         }
 
         public List<Note> GetAll()
