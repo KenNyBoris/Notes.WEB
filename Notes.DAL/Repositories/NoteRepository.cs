@@ -21,17 +21,18 @@ namespace Notes.DAL.Repositories
         {
             var note = NoteContext.Notes
                 .FirstOrDefault(s => s.Id.Equals(Guid.Parse(id)));
-             NoteContext.Notes.Remove(note);
+            note.IsDeleted = true;
+             Update(note);
         }
 
         public List<Note> GetAll()
         {
-            return NoteContext.Notes;
+            return NoteContext.Notes.Where(s => s.IsDeleted == false).ToList();
         }
 
         public Note GetById(string id)
         {
-            return NoteContext.Notes.Find(s => s.Id == Guid.Parse(id));
+            return NoteContext.Notes.FirstOrDefault(s => s.Id == Guid.Parse(id) && s.IsDeleted == false);
         }
 
         public void Update(Note entity)
